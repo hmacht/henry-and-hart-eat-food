@@ -1,0 +1,40 @@
+<h2>New Restaurant</h2>
+
+<%= form_with model: @restaurant, local: true, enctype: "multipart/form-data" do |form| %>
+  <% if @restaurant.errors.any? %>
+    <div>
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :review %>
+    <%= form.text_area :review %>
+  </div>
+
+  <div>
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true %> <!-- Multiple files upload -->
+  </div>
+
+  <div>
+    <%= form.submit "Create Restaurant" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', admin_dashboard_index_path %>

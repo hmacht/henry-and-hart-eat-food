@@ -1,0 +1,104 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.restaurants-container {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.new-restaurant-link {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.restaurant-card {
+  padding: 15px;
+}
+
+.restaurant-photos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.restaurant-photo {
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  margin-bottom: 0;
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.restaurant-name:hover {
+  text-decoration: underline;
+}
+
+.restaurant-address {
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.restaurant-review {
+  font-size: 16px;
+}
+
+.show-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+.show-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* ADMIN DASHBOARD */
+.restaurant-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.restaurant-table th, .restaurant-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.restaurant-table th {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* For every odd row, apply a grey background */
+.restaurant-table tr.odd-row {
+  background-color: #f7f7f7;
+}
+
+.restaurant-action-contailer {
+  display: flex;
+  gap: 5px;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  color: white;
+}
+

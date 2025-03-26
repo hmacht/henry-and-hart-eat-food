@@ -1,0 +1,40 @@
+<h2>Admin Dashboard</h2>
+
+<%= link_to 'home', restaurants_path %>
+<%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+<%= button_to 'New restaurant', new_restaurant_path, method: :get %>
+
+<table class="restaurant-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <tr class="<%= 'odd-row' if index.odd? %>">
+        <td><%= restaurant.name %></td>
+        <td>
+          <div class="restaurant-action-contailer">
+            <%= button_to 'Edit', edit_restaurant_path(restaurant), method: :get, class: "edit-button" %>
+            |
+            <%= form_with model: restaurant, method: :delete, local: true do |form| %>
+              <%= form.submit 'Delete', class: 'delete-button', id: "delete-btn-#{restaurant.id}" %>
+            <% end %>
+          </div>
+          
+
+          <script>
+            document.getElementById('delete-btn-<%= restaurant.id %>').addEventListener('click', function(event) {
+              if (!confirm('Are you sure you want to delete this <%= restaurant.name %>?')) {
+                event.preventDefault();
+              }
+            });
+          </script>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

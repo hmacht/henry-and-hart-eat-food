@@ -1,0 +1,22 @@
+<div class="restaurants-container">
+  <% if @is_admin %>
+    <%= link_to "Edit", admin_dashboard_index_path %>
+  <% end %>
+  <% @restaurants.each do |restaurant| %>
+    <div class="restaurant-card">
+      <div>
+        <%= link_to restaurant.name, restaurant_path(restaurant), class: "restaurant-name" %>
+        <p class="restaurant-address"><%= restaurant.address %></p>
+        <p class="restaurant-review"> <%= restaurant.review %></p>
+
+        <% if restaurant.photos.any? %>
+          <div class="restaurant-photos">
+            <% restaurant.photos.first(3).each do |photo| %>
+              <%= image_tag(photo, class: "restaurant-photo") %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

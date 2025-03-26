@@ -1,0 +1,20 @@
+<div class="restaurants-container">
+  <%= link_to 'back', restaurants_path %>
+  <p class="restaurant-name"><%= @restaurant.name %></p>
+  <p class="restaurant-address"><%= @restaurant.address %></p>
+  <p class="restaurant-review"> <%= @restaurant.review %></p>
+
+  <% if @restaurant.photos.any? %>
+    <div class="restaurant-photos">
+      <% @restaurant.photos.each do |photo| %>
+        <%= image_tag(photo, class: "restaurant-photo") %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+
+  <%= form_with model: @restaurant, method: :delete do %>
+    <%= submit_tag "Delete", class: "delete-button" %>
+  <% end %>
+</div>
