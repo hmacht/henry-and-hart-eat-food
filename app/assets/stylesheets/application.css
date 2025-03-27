@@ -2,6 +2,18 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.restaurants-main-container {
+  text-align: center;
+}
+
+.little-food-drawing {
+
+  margin: 1rem 0 3rem 0;
+  width: 30px;
+  height: auto;
+
+}
+
 .restaurants-container {
   max-width: 650px;
   margin: 0 auto;
@@ -28,6 +40,14 @@ body {
   max-width: 200px;
   height: auto;
   border-radius: 5px;
+}
+
+.restaurant-name-unclickable {
+  font-size: 24px;
+  margin-bottom: 0;
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 .restaurant-name {
@@ -58,10 +78,29 @@ body {
   color: #007bff;
   text-decoration: none;
 }
+
 .show-link:hover {
   text-decoration: underline;
 }
 
+/* EDIT RESARAUNT */
+.textarea-large {
+  height: 200px;
+}
+
+.markdown-options pre {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  white-space: pre-wrap;
+}
+
+.edit-restaurant-images {
+  display: flex;
+  gap: 5px;
+  padding-top: 1rem;
+}
 
 
 

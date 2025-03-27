@@ -24,12 +24,32 @@
 
   <div>
     <%= form.label :review %>
-    <%= form.text_area :review %>
+    <%= form.text_area :review, class: "textarea-large" %>
+  </div>
+
+  <div class="markdown-options">
+    <pre>
+      **Bold Text**: Makes text bold.
+      *Italic Text*: Makes text italic.
+      `Code`: Renders text as code block.
+      [Link](http://example.com): Creates a hyperlink.
+      - List item: Creates a list.
+    </pre>
   </div>
 
   <div>
     <%= form.label :photos %>
-    <%= form.file_field :photos, multiple: true %> <!-- Multiple files upload -->
+    <%= form.file_field :photos, multiple: true, direct_upload: true, class: 'photo-upload', onchange: 'previewPhotos(event)' %>
+    
+    <div id="photo-preview" class="edit-restaurant-images">
+      <% if @restaurant.photos.attached? %>
+        <% @restaurant.photos.each do |photo| %>
+          <div class="existing-photo">
+            <%= image_tag(photo, class: "restaurant-photo") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div>
@@ -38,3 +58,31 @@
 <% end %>
 
 <%= link_to 'Back', admin_dashboard_index_path %>
+
+
+
+<script>
+  function previewPhotos(event) {
+    const photoPreview = document.getElementById('photo-preview');
+    const files = event.target.files;
+
+    if (files.length > 0) {
+      const currentPreviewImages = photoPreview.querySelectorAll('.restaurant-photo');
+      currentPreviewImages.forEach(img => img.remove());
+    }
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        const img = document.createElement('div');
+        img.classList.add('preview-photo');
+        img.innerHTML = `<img src="${e.target.result}" class="restaurant-photo">`;
+        photoPreview.appendChild(img);
+      }
+
+      reader.readAsDataURL(file);
+    }
+  }
+</script>

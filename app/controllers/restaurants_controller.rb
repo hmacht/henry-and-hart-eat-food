@@ -30,7 +30,13 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    if @restaurant.update(restaurant_params)
+    update_params = restaurant_params
+
+    if params[:restaurant][:photos] == [ "" ]
+      update_params = params.require(:restaurant).except(:photos).permit(:name, :address, :review)
+    end
+
+    if @restaurant.update(update_params)
       redirect_to @restaurant, notice: "Restaurant was successfully updated."
     else
       render :edit
