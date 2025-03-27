@@ -6,6 +6,6 @@ This is a site built for people interesting in food and design, espesially in th
 
 
 Tools:
-Host: Heroku
-Database: Postgresql hosted by Heroku
-Storage: AWS S3
+- Host: Heroku
+- Database: Postgresql hosted by Heroku
+- Storage: AWS S3
