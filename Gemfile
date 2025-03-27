@@ -12,6 +12,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem 'devise'
 gem 'redcarpet'
+gem "aws-sdk-s3", require: false
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
