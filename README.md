@@ -1,6 +1,6 @@
 # README
 
-🫒 Project Olive
+🫒 Henry and Hart eat food
 
 This is a site built for people interesting in food and design, espesially in the NYC area.
 
